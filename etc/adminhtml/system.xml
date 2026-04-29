@@ -15,6 +15,11 @@
                     <label>Api Key</label>
                     <backend_model>Relevanz\Tracking\Model\Config\Backend\ApiKey</backend_model>
                 </field>
+                <field id="client_id" translate="label comment" type="text" sortOrder="40" showInDefault="0" showInWebsite="0" showInStore="1">
+                    <label>Client ID</label>
+                    <frontend_model>Relevanz\Tracking\Block\Adminhtml\System\Config\Form\Field\ReadonlyField</frontend_model>
+                    <comment>Automatically populated after a successful API key verification. Do not edit manually.</comment>
+                </field>
                 <field id="additional_html" translate="label comment" type="textarea" sortOrder="50" showInDefault="0" showInWebsite="0" showInStore="1">
                     <label>Additional HTML example</label>
                     <comment>With additional html you can trigger the pixel depending on your cookie-consent.</comment>

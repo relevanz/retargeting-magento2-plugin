@@ -95,7 +95,7 @@ class Data extends AbstractHelper
             'plugin-version' => file_exists(__DIR__.'/../composer.json') ? json_decode(file_get_contents(__DIR__.'/../composer.json'))->version : null,
             'shop' => [
                 'system' => 'Magento',
-                'version' => 'Magento@'.ObjectManager::getInstance()->get(ProductMetadataInterface::class)->getVersion(),
+                'version' => ObjectManager::getInstance()->get(ProductMetadataInterface::class)->getVersion(),
             ],
             'environment' => array_merge(
                 AbstractShopInfo::getServerEnvironment(),
@@ -103,7 +103,7 @@ class Data extends AbstractHelper
             ),
             'callbacks' => [
                 'callback' => [
-                    'url' => sprintf('%srelevanz/shopInfo', $baseUrl),
+                    'url' => sprintf('%srelevanz/shopinfo', $baseUrl),
                     'parameters' => [],
                 ],
                 'export' => [

@@ -1,5 +1,5 @@
 <?php declare(strict_types = 1);
-namespace Relevanz\Tracking\Controller\Shopinfo;
+namespace Relevanz\Tracking\Controller\ShopInfo;
 
 use Relevanz\Tracking\Helper\Data as DataHelper;
 use Magento\Framework\Controller\ResultFactory;
@@ -20,7 +20,9 @@ class Index extends \Magento\Framework\App\Action\Action
     public function execute() : ResultInterface
     {
         if (!$this->helper->isAuthed($this->getRequest()->getParam('auth', ''))) {
-            throw new \Exception('Not authed');
+            $response = $this->resultFactory->create(ResultFactory::TYPE_RAW);
+            $response->setHttpResponseCode(401);
+            return $response;
         }
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($this->helper->getShopInfo());
     }

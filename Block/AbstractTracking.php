@@ -46,7 +46,7 @@ abstract class AbstractTracking extends Template
             $parameters['custid'] = $customerId;
         }
         return [
-            'src' => $this->url.'?'.http_build_query($this->getParameters()),
+            'src' => $this->url.'?'.http_build_query($parameters),
             'async' => 'true',
         ];
     }

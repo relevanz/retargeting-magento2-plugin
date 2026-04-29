@@ -104,8 +104,8 @@ class Index extends Action
             $response->setHttpResponseCode(401);
         } else {
             try {
-                $type = $this->getRequest()->getParam('type', 'csv');
-                $exporter = $this->getProducts($type === 'json' ? $type : 'csv', $this->getStore());
+                $format = $this->getRequest()->getParam('format', $this->getRequest()->getParam('type', 'csv'));
+                $exporter = $this->getProducts($format === 'json' ? $format : 'csv', $this->getStore());
                 if ($exporter === null) {
                     $response->setHttpResponseCode(404);
                 } else {
